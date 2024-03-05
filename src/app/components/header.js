@@ -1,6 +1,6 @@
 export default function Header(){
     return (
-
+        <div className="bg-white">
         <div className='container mx-auto flex '>
             <img src='https://www.koinx.com/_next/static/media/Logo.5f2ad8d5.svg'></img>
             <div className='flex flex-grow  text-center space-x-6 place'>
@@ -18,6 +18,6 @@ export default function Header(){
                 </button>
             </div>
         </div>
-
+        </div>
     )
 }
