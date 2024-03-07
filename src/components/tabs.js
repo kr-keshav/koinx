@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, Tab } from "@nextui-org/react";
 import { Progress } from "@nextui-org/react";
-import pie from "../../../public/pie.svg";
+
 import PerformanceTab from "./performance";
 import SentimentsTab from "./sentiments"
 import Tokenomics from "./tokenomics";

@@ -90,7 +90,7 @@
 
 import React, { useEffect, useRef, memo } from 'react';
 
-function TradingViewWidget() {
+function TradingViewWidget(symbol) {
   const container = useRef();
 
   useEffect(() => {
@@ -101,7 +101,7 @@ function TradingViewWidget() {
     script.innerHTML = `
       {
         "autosize": true,
-        "symbol": "BITSTAMP:BTCUSD",
+        "symbol": "BITSTAMP:${symbol?.symbol}USD",
         "interval": "D",
         "timezone": "Etc/UTC",
         "theme": "light",
