@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Footer(coinList) {
 	console.log(coinList);
 	return (
-		<div class="flex overflow-x-auto">
+		<div className="flex overflow-x-auto">
 			{/* <Image src='https://www.coingecko.com/coins/33511/sparkline.svg' alt="coinChart" width={52} height={52}/> */}
 			{coinList?.coinList?.map((coin, index) => (
 				<div

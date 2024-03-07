@@ -31,3 +31,33 @@ body {
     text-wrap: balance;
   } */
 }
+
+.chart-container {
+  width: 60vw; /* 2/3 of the viewport width */
+  height: 100vh; /* Full height of the viewport */
+  position: relative;
+}
+
+.chart-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .chart-container {
+    width: 80vw; /* Adjust as needed */
+  }
+}
+
+/* Media query for extra small screens */
+@media (max-width: 576px) {
+  .chart-container {
+    width: 70vw; /* Adjust as needed */
+    height:50vh;
+  }
+}

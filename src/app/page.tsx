@@ -9,6 +9,7 @@ import bitcoin from "../../public/bitcoin.svg";
 // import card from "../../public/card.png";
 import cardImage from "../../public/cardImage.svg";
 
+
 export default function Home() {
 	const [coinData, setCoinDatad] = useState(null);
 
@@ -61,50 +62,56 @@ export default function Home() {
 					<div>Bitcoin</div>
 				</div>
 
-				<div className="flex space-x-4">
-					<div className="bg-white px-5 pt-2 rounded-md">
-						{/* //left side */}
-						<div className="flex space-x-2 py-4 ">
-							<Image
-								src={bitcoin}
-								alt="bitcoin"
-								className="h-8 w-8 place-self-center"
-							></Image>
-							<div className="place-self-center text-2xl font-semibold">
-								Bitcoin
+				<div className="flex space-x-4 flex-wrap md:flex-nowrap container">
+					<div>
+						<div className="bg-white px-5 pt-2 rounded-md">
+							{/* //left side */}
+							<div className="flex space-x-2 py-4 ">
+								<Image
+									src={bitcoin}
+									alt="bitcoin"
+									className="h-8 w-8 place-self-center"
+								></Image>
+								<div className="place-self-center text-2xl font-semibold">
+									Bitcoin
+								</div>
+								<div className="place-self-center pr-6">BTC</div>
+								<div className="bg-gray-500 place-self-center rounded-md p-2 px-3 text-white">
+									Rank #1
+								</div>
 							</div>
-							<div className="place-self-center pr-6">BTC</div>
-							<div className="bg-gray-500 place-self-center rounded-md p-2 px-3 text-white">
-								Rank #1
+							<div className="flex mt-6 space-x-4">
+								<div className="text-3xl font-medium pr-4">$ {usd} </div>
+								<div
+									className={`place-self-center px-3 py-0.5 rounded-sm ${
+										usd_24h_change >= 0
+											? "bg-green-100 text-green-600"
+											: "bg-red-100 text-red-600"
+									}`}
+								>
+									{usd_24h_change >= 0 ? "▲" : "▼"}
+									{parseFloat(usd_24h_change).toFixed(2)}%
+								</div>
+								<div className="place-self-center text-sm text-gray-500">
+									(24H)
+								</div>
 							</div>
-						</div>
-						<div className="flex mt-6 space-x-4">
-							<div className="text-3xl font-medium pr-4">$ {usd} </div>
-							<div
-								className={`place-self-center px-3 py-0.5 rounded-sm ${
-									usd_24h_change >= 0
-										? "bg-green-100 text-green-600"
-										: "bg-red-100 text-red-600"
-								}`}
-							>
-								{usd_24h_change >= 0 ? "▲" : "▼"}
-								{parseFloat(usd_24h_change).toFixed(2)}%
-							</div>
-							<div className="place-self-center text-sm text-gray-500">
-								(24H)
-							</div>
-						</div>
-						<div className="text-base mt-2">₹ {inr}</div>
-						<div className="mt-2">
-							<TradingViewWidget />
-						</div>
+							<div className="text-base mt-2">₹ {inr}</div>
+							{/* <div className="w-full" style={{ width: '60vw', height: '66.6667vh' }}> */}
+              {/* <div className="w-[2/3vh] h-2/3 relative" > */}
+              <div className="chart-container">
 
-						<div>
-							<TabsOptions />
+								<TradingViewWidget />
+
+							</div>
+
 						</div>
+							<div className="mt-4">
+								{/* <TabsOptions /> */}
+							</div>
 					</div>
 
-					<div className=" w-2/6 space-y-5">
+					<div className="md:w-2/6 w-full space-y-5">
 						{/* //right side */}
 						<div className="bg-cardBlue text-white container rounded-xl px-12 py-8 pb-12 space-y-4 text-center">
 							{/* //component1 */}
@@ -163,8 +170,8 @@ export default function Home() {
 						<Footer coinList={trendingData?.coins} />
 					</div>
 
-          <div className="text-2xl font-medium ml-4 mt-8">Trending Coins</div>
-          <div className="flex  mx-auto my-4">
+					<div className="text-2xl font-medium ml-4 mt-8">Trending Coins</div>
+					<div className="flex  mx-auto my-4">
 						<Footer coinList={trendingData?.coins} />
 					</div>
 				</div>
