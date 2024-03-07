@@ -1,22 +1,22 @@
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import Header from "./components/header";
-import TradingViewWidget from "./components/chart";
-import TabsOptions from "./components/tabs";
-import Footer from "./components/footer";
-import bitcoin from "../../public/bitcoin.svg";
+import Header from "../../components/header";
+import TradingViewWidget from "../../components/chart";
+import TabsOptions from "../../components/tabs";
+import Footer from "../../components/footer";
+import bitcoin from "../../../public/bitcoin.svg";
 // import card from "../../public/card.png";
-import cardImage from "../../public/cardImage.svg";
+import cardImage from "../../../public/cardImage.svg";
 
-export default function Home() {
+export default function Page({ params }: { params: { slug: string } }) {
 	const [coinData, setCoinDatad] = useState(null);
-
+	console.log("shdfhsdofhjshdfkj",params.slug,coinData)
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
-					"https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=inr%2Cusd&include_24hr_change=true"
+					`https://api.coingecko.com/api/v3/simple/price?ids=${params.slug}&vs_currencies=inr%2Cusd&include_24hr_change=true`
 				);
 				const jsonData = await response.json();
 				setCoinDatad(jsonData);
@@ -27,8 +27,11 @@ export default function Home() {
 
 		fetchData();
 	}, []);
-	const { inr, inr_24h_change, usd, usd_24h_change } = coinData?.bitcoin || {};
+	const coin = params.slug;
 
+	console.log("coinData?.coin",coinData?.[coin]);
+	const { inr, inr_24h_change, usd, usd_24h_change } = coinData?.[coin] || {};
+	
 	const [trendingData, setTrendingData] = useState(null);
 	useEffect(() => {
 		const fetchData = async () => {
@@ -48,7 +51,7 @@ export default function Home() {
 
 	const topCoins = trendingData?.coins?.slice(0, 3);
 
-	console.log(coinData, inr, trendingData, "234", trendingData?.coins);
+	console.log("bottom",coinData, inr, trendingData, "234", trendingData?.coins);
 
 	return (
 		<div className="bg-gray-200">
@@ -72,7 +75,7 @@ export default function Home() {
 									className="h-8 w-8 place-self-center"
 								></Image>
 								<div className="place-self-center text-2xl font-semibold">
-									Bitcoin
+								{coin.toUpperCase()}
 								</div>
 								<div className="place-self-center pr-6">BTC</div>
 								<div className="bg-gray-500 place-self-center rounded-md p-2 px-3 text-white">
@@ -101,17 +104,26 @@ export default function Home() {
 							</div>
 						</div>
 						<div className="flex overflow-x-scroll space-x-4 mt-4">
-							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href="#overview">
+							<a
+								className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent"
+								href="#overview"
+							>
 								Overview
 							</a>
 
-							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href="#fundamentals">
+							<a
+								className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent"
+								href="#fundamentals"
+							>
 								Fundamentals
 							</a>
 							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
 								News Insights
 							</a>
-							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href="#sentiments">
+							<a
+								className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent"
+								href="#sentiments"
+							>
 								Sentiments
 							</a>
 							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
@@ -120,7 +132,10 @@ export default function Home() {
 							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
 								Technicals
 							</a>
-							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href='#tokenomics'>
+							<a
+								className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent"
+								href="#tokenomics"
+							>
 								Tokenomics
 							</a>
 						</div>
@@ -181,15 +196,15 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="bg-white my-14">
-				<div className="container mx-auto py-8">
+			<div className="bg-white my-14 p-4 px-8 mx-auto w-full">
+				<div className=" mx-auto py-8">
 					<div className="text-2xl font-medium ml-4">You May Also Like</div>
 					<div className="flex  mx-auto my-4">
 						<Footer coinList={trendingData?.coins} />
 					</div>
 
 					<div className="text-2xl font-medium ml-4 mt-8">Trending Coins</div>
-					<div className="flex  mx-auto my-4">
+					<div className="flex mx-auto my-4">
 						<Footer coinList={trendingData?.coins} />
 					</div>
 				</div>
