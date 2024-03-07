@@ -9,7 +9,6 @@ import bitcoin from "../../public/bitcoin.svg";
 // import card from "../../public/card.png";
 import cardImage from "../../public/cardImage.svg";
 
-
 export default function Home() {
 	const [coinData, setCoinDatad] = useState(null);
 
@@ -54,7 +53,7 @@ export default function Home() {
 	return (
 		<div className="bg-gray-200">
 			<Header />
-			<div className="container mx-auto ">
+			<div className="p-4 px-8 mx-auto w-full">
 				<div className="flex text-sm py-4">
 					<div className="text-gray-600">
 						Cryptocurrencies &gt;&gt; {/* Renders >> */}
@@ -62,9 +61,9 @@ export default function Home() {
 					<div>Bitcoin</div>
 				</div>
 
-				<div className="flex space-x-4 flex-wrap md:flex-nowrap container">
-					<div>
-						<div className="bg-white px-5 pt-2 rounded-md">
+				<div className="flex lg:space-x-4 flex-wrap lg:flex-nowrap w-full">
+					<div className="w-full">
+						<div className="bg-white px-5 pt-2 rounded-md w-full">
 							{/* //left side */}
 							<div className="flex space-x-2 py-4 ">
 								<Image
@@ -96,24 +95,43 @@ export default function Home() {
 									(24H)
 								</div>
 							</div>
-							<div className="text-base mt-2">₹ {inr}</div>
-							{/* <div className="w-full" style={{ width: '60vw', height: '66.6667vh' }}> */}
-              {/* <div className="w-[2/3vh] h-2/3 relative" > */}
-              <div className="chart-container">
-
+							<div className="text-base my-2">₹ {inr}</div>
+							<div className="chart-container w-full h-24vh">
 								<TradingViewWidget />
-
 							</div>
-
 						</div>
-							<div className="mt-4">
-								{/* <TabsOptions /> */}
-							</div>
+						<div className="flex overflow-x-scroll space-x-4 mt-4">
+							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href="#overview">
+								Overview
+							</a>
+
+							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href="#fundamentals">
+								Fundamentals
+							</a>
+							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
+								News Insights
+							</a>
+							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href="#sentiments">
+								Sentiments
+							</a>
+							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
+								Team
+							</a>
+							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
+								Technicals
+							</a>
+							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent" href='#tokenomics'>
+								Tokenomics
+							</a>
+						</div>
+						<div className="mt-4 w-full">
+							<TabsOptions />
+						</div>
 					</div>
 
-					<div className="md:w-2/6 w-full space-y-5">
+					<div className="lg:w-2/6 w-full space-y-5 lg:mt-0 mt-8 ">
 						{/* //right side */}
-						<div className="bg-cardBlue text-white container rounded-xl px-12 py-8 pb-12 space-y-4 text-center">
+						<div className="bg-cardBlue text-white rounded-xl px-12 py-8 pb-12 space-y-4 text-center">
 							{/* //component1 */}
 							<div className=" text-2xl font-semibold break-normal px-4 leading-relaxed">
 								Get Started With KoinX for FREE
@@ -127,7 +145,7 @@ export default function Home() {
 								Get started for FREE ➔
 							</button>
 						</div>
-						<div className="bg-white container p-6 rounded-md ">
+						<div className="bg-white  p-6 rounded-md ">
 							<div className="font-medium text-2xl">Trending Coins (24h)</div>
 							<div className="space-y-4 pt-8">
 								{topCoins?.map((coin, index) => (

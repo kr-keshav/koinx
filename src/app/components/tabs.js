@@ -4,10 +4,22 @@ import { Progress } from "@nextui-org/react";
 import pie from "../../../public/pie.svg";
 import PerformanceTab from "./performance";
 import SentimentsTab from "./sentiments"
+import Tokenomics from "./tokenomics";
 export default function TabsOptions() {
 	return (
-		<div className="flex flex-wrap gap-4">
-			<Tabs
+	
+		<div className="w-full space-y-8" >
+			<PerformanceTab/>
+			<SentimentsTab/>
+			<Tokenomics/>
+		</div>
+
+	);
+}
+
+
+
+{/* <Tabs
 				key="underlined"
 				variant="underlined"
 				aria-label="Tabs variants"
@@ -72,7 +84,4 @@ export default function TabsOptions() {
                             </div>
 					</div>
 				</Tab>
-			</Tabs>
-		</div>
-	);
-}
+			</Tabs> */}

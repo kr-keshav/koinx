@@ -2,11 +2,11 @@ import React from "react";
 
 export default function Sentiments() {
 	return (
-		<div className="flex flex-col w-[881px] h-[632px] bg-white rounded-md text-black p-6 gap-4">
-			<h1 className="text-xl font-bold text-black">Sentiment</h1>
+		<div className="flex flex-col w-full  bg-white rounded-md text-black p-6 gap-4">
+			<h1 className="text-xl font-bold text-black" id='sentiments'>Sentiment</h1>
 			<p className="text-lg font-bold text-gray-700">Key Events</p>
 
-			<div className="flex gap-4 w-full ">
+			<div className="flex gap-4 w-full overflow-scroll">
 				{/* card 1 */}
 				<div className="w-[456px] h-full p-4 flex bg-blue-100 rounded-xl">
 					<div className="w-[15%] flex items-start justify-center">
