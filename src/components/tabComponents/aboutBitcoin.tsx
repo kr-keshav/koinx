@@ -65,13 +65,13 @@ export default function AboutBitcoin() {
 								</div>
 
 								<button className="place-self-center bg-white rounded-md py-1.5 mt-3 px-6 font-medium hidden sm:block">
-									Check Now ->
+									Check Now -&gt;
 								</button>
 							</div>
 						</div>
 						<div className="w-full flex justify-center">
 							<button className="bg-white rounded-md py-1.5 mt-3 px-6 font-medium sm:hidden">
-								Check Now ->
+								Check Now -&gt;
 							</button>
 						</div>
 					</div>
@@ -88,13 +88,13 @@ export default function AboutBitcoin() {
 								</div>
 
 								<button className="place-self-center bg-white rounded-md py-1.5 mt-3 px-6 font-medium hidden sm:block">
-									Check Now ->
+									Check Now -&gt;
 								</button>
 							</div>
 						</div>
 						<div className="w-full flex justify-center">
 							<button className="bg-white rounded-md py-1.5 mt-3 px-6 font-medium sm:hidden">
-								Check Now ->
+								Check Now -&gt;
 							</button>
 						</div>
 					</div>
