@@ -2,13 +2,13 @@ import React from "react";
 
 export default function Tokenomics() {
 	return (
-		<div className="rounded-md container p-8 bg-white w-full">
+		<div className="rounded-md  p-8 bg-white w-full">
 			<div className="text-2xl font-medium" id="tokenomics">
 				Tokenomics
 			</div>
 			<div className="text-xl font-medium pt-4">Initial Distribution</div>
-			<div className="flex space-x-12 pt-4 w-full">
-				<div>
+			<div className="flex-row space-x-12  space-y-6 pt-4 w-full md:flex">
+				<div className='place-self-center pl-8'>
 					<svg
 						width="179"
 						height="180"

@@ -9,10 +9,10 @@ import bitcoin from "../../../public/bitcoin.svg";
 import cardImage from "../../../public/cardImage.svg";
 
 export default function Page({ params }: { params: { slug: string } }) {
-    const coin = params.slug;
+	const coin = params.slug;
 	const [coinData, setCoinDatad] = useState(null);
-    const [currCoin,setCurrCoin] = useState(null);
-    const [trendingData, setTrendingData] = useState(null);
+	const [currCoin, setCurrCoin] = useState(null);
+	const [trendingData, setTrendingData] = useState(null);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -30,9 +30,9 @@ export default function Page({ params }: { params: { slug: string } }) {
 		fetchData();
 	}, []);
 
-    console.log("currCoin",currCoin?.image?.thumb)
+	console.log("currCoin", currCoin?.image?.thumb);
 
-    useEffect(() => {
+	useEffect(() => {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
@@ -47,12 +47,10 @@ export default function Page({ params }: { params: { slug: string } }) {
 
 		fetchData();
 	}, []);
-	
 
-	console.log("coinData?.coin",coinData?.[coin]);
+	console.log("coinData?.coin", coinData?.[coin]);
 	const { inr, inr_24h_change, usd, usd_24h_change } = coinData?.[coin] || {};
-	
-	
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -71,12 +69,19 @@ export default function Page({ params }: { params: { slug: string } }) {
 
 	const topCoins = trendingData?.coins?.slice(0, 3);
 
-	console.log("bottom",coinData, inr, trendingData, "234", trendingData?.coins);
+	console.log(
+		"bottom",
+		coinData,
+		inr,
+		trendingData,
+		"234",
+		trendingData?.coins
+	);
 
 	return (
 		<div className="bg-gray-200">
 			<Header />
-			<div className="p-4 px-8 mx-auto w-full">
+			<div className="p-4 sm:px-8 mx-auto w-full">
 				<div className="flex text-sm py-4">
 					<div className="text-gray-600">
 						Cryptocurrencies &gt;&gt; {/* Renders >> */}
@@ -93,11 +98,11 @@ export default function Page({ params }: { params: { slug: string } }) {
 									src={currCoin?.image?.thumb}
 									alt="bitcoin"
 									className=" place-self-center"
-                                    width={32}
-                                    height={32}
+									width={32}
+									height={32}
 								></Image>
 								<div className="place-self-center text-2xl font-semibold">
-								{coin.toUpperCase()}
+									{coin.toUpperCase()}
 								</div>
 								<div className="place-self-center pr-6">{currCoin?.symbol}</div>
 								<div className="bg-gray-500 place-self-center rounded-md p-2 px-3 text-white">
@@ -122,8 +127,11 @@ export default function Page({ params }: { params: { slug: string } }) {
 							</div>
 							<div className="text-base my-2">₹ {inr}</div>
 							<div className="chart-container w-full h-24vh">
-                                {currCoin?.symbol?<TradingViewWidget symbol={(currCoin?.symbol)?.toUpperCase()}/>:''}
-								
+								{currCoin?.symbol ? (
+									<TradingViewWidget symbol={currCoin?.symbol?.toUpperCase()} />
+								) : (
+									""
+								)}
 							</div>
 						</div>
 						<div className="flex overflow-x-scroll space-x-4 mt-4">
@@ -140,7 +148,10 @@ export default function Page({ params }: { params: { slug: string } }) {
 							>
 								Fundamentals
 							</a>
-							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
+							<a
+								className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent"
+								href="#aboutBitcoin"
+							>
 								News Insights
 							</a>
 							<a
@@ -149,7 +160,10 @@ export default function Page({ params }: { params: { slug: string } }) {
 							>
 								Sentiments
 							</a>
-							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
+							<a
+								className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent"
+								href="#team"
+							>
 								Team
 							</a>
 							<a className="hover:text-blue-600 hover:border-b-blue-600 border-3 border-b-transparent">
@@ -167,7 +181,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 						</div>
 					</div>
 
-					<div className="lg:w-2/6 w-full space-y-5 lg:mt-0 mt-8 ">
+					<div className="lg:w-5/12 w-full space-y-5 lg:mt-0 mt-8 ">
 						{/* //right side */}
 						<div className="bg-cardBlue text-white rounded-xl px-12 py-8 pb-12 space-y-4 text-center">
 							{/* //component1 */}
@@ -219,7 +233,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 				</div>
 			</div>
 
-			<div className="bg-white my-14 p-4 px-8 mx-auto w-full">
+			<div className="bg-white my-14 p-4 sm:px-8 mx-auto w-full">
 				<div className=" mx-auto py-8">
 					<div className="text-2xl font-medium ml-4">You May Also Like</div>
 					<div className="flex  mx-auto my-4">

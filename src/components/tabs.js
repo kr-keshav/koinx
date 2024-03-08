@@ -2,16 +2,20 @@ import React from "react";
 import { Tabs, Tab } from "@nextui-org/react";
 import { Progress } from "@nextui-org/react";
 
-import PerformanceTab from "./performance";
-import SentimentsTab from "./sentiments"
-import Tokenomics from "./tokenomics";
+import PerformanceTab from "./tabComponents/performance";
+import SentimentsTab from "./tabComponents/sentiments"
+import Tokenomics from "./tabComponents/tokenomics";
+import AboutBitcoin from "./tabComponents/aboutBitcoin"
+import Team from "./tabComponents/team"
 export default function TabsOptions() {
 	return (
 	
 		<div className="w-full space-y-8" >
 			<PerformanceTab/>
 			<SentimentsTab/>
+			<AboutBitcoin/>
 			<Tokenomics/>
+			<Team/>
 		</div>
 
 	);
