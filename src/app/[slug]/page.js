@@ -8,7 +8,7 @@ import Footer from "../../components/footer";
 import bitcoin from "../../../public/bitcoin.svg";
 import cardImage from "../../../public/cardImage.svg";
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Page({ params }) {
 	const coin = params.slug;
 	const [coinData, setCoinDatad] = useState(null);
 	const [currCoin, setCurrCoin] = useState(null);
