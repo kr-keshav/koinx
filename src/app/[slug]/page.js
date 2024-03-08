@@ -30,7 +30,7 @@ export default function Page({ params }) {
 		fetchData();
 	}, []);
 
-	console.log("currCoin", currCoin?.image?.thumb);
+	// console.log("currCoin", currCoin?.image?.thumb);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -48,7 +48,7 @@ export default function Page({ params }) {
 		fetchData();
 	}, []);
 
-	console.log("coinData?.coin", coinData?.[coin]);
+	// console.log("coinData?.coin", coinData?.[coin]);
 	const { inr, inr_24h_change, usd, usd_24h_change } = coinData?.[coin] || {};
 
 	useEffect(() => {
@@ -69,14 +69,14 @@ export default function Page({ params }) {
 
 	const topCoins = trendingData?.coins?.slice(0, 3);
 
-	console.log(
-		"bottom",
-		coinData,
-		inr,
-		trendingData,
-		"234",
-		trendingData?.coins
-	);
+	// console.log(
+	// 	"bottom",
+	// 	coinData,
+	// 	inr,
+	// 	trendingData,
+	// 	"234",
+	// 	trendingData?.coins
+	// );
 
 	return (
 		<div className="bg-gray-200">
